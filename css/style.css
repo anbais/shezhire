@@ -1,5 +1,4 @@
 body{
-  font-size: 16pt;
   font-family: 'Playfair', serif;
   background-color: #1e453e;
   color: white;
@@ -49,7 +48,7 @@ header{
           text-decoration-style: solid;
 }
 
-.main_page_content h2, .operas_page_content h2, .people_page_content h2, .houses_page_content h2{
+.main_page_content h2{
   font-size: 15pt;
   margin-top: -8px;
   margin-left: auto;
@@ -85,9 +84,6 @@ a.skip:focus{
   text-decoration-style: solid;
 }
 
-*:focus{
-  border: 2px solid white;
-}
 
 footer{
   color: white;
@@ -96,28 +92,15 @@ footer{
   font-size: 0.8em;
 }
 
-.main_page_content button, .operas_page_content button{
-  width: 150px;
-  height: 50px;
-  border: 0;
-  display: block;
-  margin: 5% auto;
-  border-radius: 50px;
-  background: #E4C580;
-  color: black;
-  font-size: 15pt;
-  font-family: 'Playfair', serif;
-}
 
 .main_photo_container{
-  opacity: 20%;
   position: relative;
   margin-bottom: -4px;
   background: url("../images/background/backmain.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 625px;
+  height: 200px;
   width: 100%;
   border-top: 1px;
   border-bottom: 1px;
@@ -125,27 +108,32 @@ footer{
   border-color: white;
 }
 
-.mainheader{
+.main_photo_container::before {
+  content: "";
   position: absolute;
-  top: 45%;
+  top: 0;
+  left: 0;
+  opacity: 80%;
+  background-color: #1e453e;
+  height: 100%;
+  width: 100%;
+}
+
+.mainheader{
+  position: relative;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   font-size: 20pt;
-  width: 80%;
-  opacity: 0;
+  width: 100%;
+  opacity: inherit;
   color: #E4C580;
   font-family: 'Playfair', serif;
-  animation-name: fadein;
-  animation-duration: 6s;
-  animation-delay: 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  -webkit-animation: fadein;
-  -webkit-animation-duration: 6s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-delay: 1s;
-  -webkit-animation-fill-mode: forwards;
+  background-color: #1e453e;
+  border: 1px;
+  border-style: solid;
+  border-color: white;
 }
 
 @-webkit-keyframes fadein {
@@ -158,12 +146,125 @@ footer{
   to {opacity: 1;}
 }
 
-.subtitle_big_margin{
+.subtitle_big{
+  text-align: center;
+  font-size: 1.5em;
+  display: block;
+  margin: 20px auto;
+}
+
+.subtitle_small{
   text-align: center;
   font-size: 1em;
   display: block;
-  margin: 50px 30px;
+  width: 70%;
+  margin: 10px auto;
 }
+
+
+
+
+
+
+
+ul {
+  margin-left: 20px;
+}
+
+.genealogy-tree {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+h1{
+  font-weight: bold;
+  
+}
+
+ul h3{
+  border: 1px;
+  border-style: solid;
+  border-color: white;
+  padding: 5px;
+  color: #E4C580;
+}
+
+.level1 li {
+  list-style-type: none;
+  margin: 10px 0 10px 10px;
+  position: relative;
+}
+
+.level1 li:before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -20px;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  width: 20px;
+  height: 15px;
+}
+
+.level1 li:after {
+  position: absolute;
+  content: "";
+  top: 5px;
+  left: -20px;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  width: 20px;
+  height: 100%;
+}
+
+.level1 li:last-child:after {
+  display: none;
+}
+
+.level1 li span {
+  display: block;
+  border: 1px solid #ddd;
+  padding: 10px;
+  color: #888;
+  text-decoration: none;
+}
+
+.level1 li span:hover,
+.level1 li span:focus {
+  background: #eee;
+  color: #000;
+  border: 1px solid #aaa;
+}
+
+.level1 li span:hover + ul,
+.level1 li span:focus + ul {
+  li:after,
+  li:before {
+    border-color: #aaa;
+  }
+}
+
+.level1 li span:hover + ul li span,
+.level1 li span:focus + ul li span {
+  background: #eee;
+  color: #000;
+  border: 1px solid #aaa;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 hr{
   height: 5px;
@@ -181,7 +282,7 @@ hr{
   }
 
   .mainheader, .peopleheader{
-    font-size: 30pt;
+    font-size: 2em;
   }
 
   .main_page_content img{
@@ -194,134 +295,121 @@ hr{
     margin-right: auto !IMPORTANT;
   }
 
-  .grid_people{
-    grid-template-columns: repeat(9, 1fr);;
-    margin: 15px 5%;
+
+
+  .genealogy-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 8px;
+  }
+  .genealogy-scroll::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: #e4e4e4;
+  }
+  .genealogy-scroll::-webkit-scrollbar-thumb {
+      background: #212121;
+      border-radius: 10px;
+      transition: 0.5s;
+  }
+  .genealogy-scroll::-webkit-scrollbar-thumb:hover {
+      background: #d5b14c;
+      transition: 0.5s;
   }
 
-  #alibek{
-    grid-row: 1/span 1;
+  .genealogy-body{
+      white-space: nowrap;
+      overflow-y: hidden;
+      padding: 50px;
+      min-height: 500px;
+      padding-top: 10px;
+      text-align: center;
+  }
+  .genealogy-tree{
+    display: inline-block;
+  }
+  .genealogy-tree ul {
+      padding-top: 20px;
+      position: relative;
+      padding-left: 0px;
+      display: flex;
+      justify-content: center;
+  }
+  .genealogy-tree li {
+      float: left; text-align: center;
+      list-style-type: none;
+      position: relative;
+      padding: 20px 5px 0 5px;
+  }
+  .genealogy-tree li::before, .genealogy-tree li::after{
+      content: '';
+      position: absolute;
+    top: 0;
+    right: 50%;
+      border-top: 2px solid #ccc;
+      width: 50%;
+    height: 18px;
+  }
+  .genealogy-tree li::after{
+      right: auto; left: 50%;
+      border-left: 2px solid #ccc;
+  }
+  .genealogy-tree li:only-child::after, .genealogy-tree li:only-child::before {
+      display: none;
+  }
+  .genealogy-tree li:only-child{
+      padding-top: 0;
+  }
+  .genealogy-tree li:first-child::before, .genealogy-tree li:last-child::after{
+      border: 0 none;
+  }
+  .genealogy-tree li:last-child::before{
+      border-right: 2px solid #ccc;
+      border-radius: 0 5px 0 0;
+      -webkit-border-radius: 0 5px 0 0;
+      -moz-border-radius: 0 5px 0 0;
+  }
+  .genealogy-tree li:first-child::after{
+      border-radius: 5px 0 0 0;
+      -webkit-border-radius: 5px 0 0 0;
+      -moz-border-radius: 5px 0 0 0;
+  }
+  .genealogy-tree ul ul::before{
+      content: '';
+      position: absolute; top: 0; left: 50%;
+      border-left: 2px solid #ccc;
+      width: 0; height: 20px;
+      background-color: white;
+  }
+  .genealogy-tree li a{
+      text-decoration: none;
+      color: #666;
+      font-family: arial, verdana, tahoma;
+      font-size: 11px;
+      display: inline-block;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
   }
 
-  #alibek{
-    grid-column: 5/span 1;
+  .genealogy-tree li a:hover+ul li::after,
+  .genealogy-tree li a:hover+ul li::before,
+  .genealogy-tree li a:hover+ul::before,
+  .genealogy-tree li a:hover+ul ul::before{
+      border-color:  #E4C580;
   }
 
-  #al{
-    grid-column: 5/span 1;
+  /*--------------memeber-card-design----------*/
+  .member-view-box{
+      padding:20px 20px;
+      text-align: center;
+      border-radius: 4px;
+      border: 1px;
+      border-style: solid;
+      border-color: #E4C580;
+      position: relative;
+      color: white;
+      font-size: 20pt;
+      font-family: 'Playfair', serif;
   }
-
-  .people_page_content p{
-    margin: 10px 20px;
-  }
-
-  .grid_main{
-    display: grid;
-    grid-template-columns: 1fr 0.1fr 2fr;
-    grid-template-rows: 1fr 1fr;
-    margin: 2% 5%;
-  }
-
-  #main_page_operas p, #main_page_people p, #main_page_houses p{
-    grid-column: 1/span 1;
-    grid-row: 1/span 1;
-    text-align: center;
-    margin-top: 40%;
-    margin-bottom: 10%;
-  }
-
-  .grid_main button{
-    grid-column: 1/span 1;
-    grid-row: 2/span 1;
-    margin-top: 10%;
-  }
-
-  #main_page_operas img, #main_page_people img, #main_page_houses img{
-    grid-column: 3/span 1;
-    grid-row: 1/span 2;
-    max-width: 100%;
-    overflow: hidden;
-    border: 2px white solid;
-  }
-
-  .grid_operas{
-    display: grid;
-    grid-template-columns: 7fr 5fr;
-    grid-template-rows: 1fr 5fr;
-    margin: 2% 5%;
-    grid-column-gap: 1px;
-  }
-
-  .slideshow_container{
-    grid-column: 1/span 1;
-    grid-row: 2/span 1;
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .main_info_operas{
-    grid-column: 1/span 2;
-    grid-row: 1/span 1;
-    text-align: center;
-    margin: 0%  1% !IMPORTANT;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .slide_text{
-    grid-column: 2/span 1;
-    grid-row: 2/span 1;
-    margin: 5%  1% !IMPORTANT;
-    display: flex;
-    align-items: center;
-  }
-
-  .grid_houses{
-    display: grid;
-    grid-template-columns: 4fr 0.1fr 4fr;
-    grid-template-rows: 1fr 3fr 1fr;
-    margin: 2% 5%;
-    grid-column-gap: 1px;
-  }
-
-  .flipcard{
-    grid-column: 1/span 1;
-    grid-row: 2/span 1;
-    max-width: 100%;
-    overflow: hidden;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-
-  .grid_houses .house_name{
-    grid-column: 1/span 1;
-    grid-row: 1/span 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .grid_houses .house_description{
-    grid-column: 3/span 1;
-    grid-row: 2/span 1;
-    display: flex;
-    align-items: center;
-    margin: 0% !IMPORTANT;
-  }
-
-  .grid_houses .house_extra{
-    grid-column: 1/span 1;
-    grid-row: 3/span 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .flip_card_astana, .flip_card_ksatob{
-    margin: auto !IMPORTANT;
-  }
-}
 
 @media screen and (min-width: 1000px){
 
@@ -335,200 +423,30 @@ hr{
     padding: 10px;
   }
 
-  .mainheader, .peopleheader{
+  .mainheader{
     font-size: 30pt;
   }
 
-  .main_page_content p, .operas_page_content p, .people_page_content p, .houses_page_content p{
+  .main_page_content p{
     margin: 20px 20px;
     font-size: 1.2em;
   }
 
-  .subtitle_big_margin{
+  .subtitle_big{
     font-size: 1.5em;
   }
 
-  .subtitle_small_margin{
-    font-size: 1.5em;
+  .subtitle_small{
+    text-align: center;
+    font-size: 1em;
+    display: block;
+    margin: auto;
   }
 
-  .grid_main{
-    grid-template-columns: 1fr 0.1fr 1.2fr;
-  }
-
-  #main_page_operas p, #main_page_people p, #main_page_houses p{
-    margin-top: 20%;
-    margin-bottom: 5%;
-  }
-
-  .grid_main button{
-    margin-top: 5%;
-  }
-
-  #main_page_operas img, #main_page_people img, #main_page_houses img{
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    max-width: 90%;
-  }
-
-  .people_page_content .name{
-    font-size: 1.1em;
-    margin-top: 25%;
-  }
-}
 
 @media (prefers-reduced-motion: reduce){
   .mainheader, .peopleheader{
     opacity: 1;
     animation: none;
   }
-
-  .flip_card_ksatob, .flip_card_astana{
-    pointer-events: none;
-  }
-
-  .flip_card_ksatob:focus{
-    opacity: 60%;
-    position: relative;
-    background: url("../images/houses/ksatob_front.jpg");
-    background-size: cover;
-    background-position: bottom;
-    height: 200px;
-    margin: 20px auto;
-    border-radius: 7px;
-    max-width: 90%;
-    border: 1px white solid;
-  }
-
-  .flip_card_astana:focus{
-    opacity: 60%;
-    position: relative;
-    background: url("../images/houses/astana_front.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 200px;
-    margin: 20px auto;
-    border-radius: 7px;
-    max-width: 90%;
-    border: 1px white solid;
-  }
-
-  .parallax{
-    background-attachment: scroll;
-  }
-}
-
-.genealogy-scroll::-webkit-scrollbar {
-    width: 5px;
-    height: 8px;
-}
-.genealogy-scroll::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: #e4e4e4;
-}
-.genealogy-scroll::-webkit-scrollbar-thumb {
-    background: #212121;
-    border-radius: 10px;
-    transition: 0.5s;
-}
-.genealogy-scroll::-webkit-scrollbar-thumb:hover {
-    background: #d5b14c;
-    transition: 0.5s;
-}
-
-.genealogy-body{
-    white-space: nowrap;
-    overflow-y: hidden;
-    padding: 50px;
-    min-height: 500px;
-    padding-top: 10px;
-    text-align: center;
-}
-.genealogy-tree{
-  display: inline-block;
-}
-.genealogy-tree ul {
-    padding-top: 20px;
-    position: relative;
-    padding-left: 0px;
-    display: flex;
-    justify-content: center;
-}
-.genealogy-tree li {
-    float: left; text-align: center;
-    list-style-type: none;
-    position: relative;
-    padding: 20px 5px 0 5px;
-}
-.genealogy-tree li::before, .genealogy-tree li::after{
-    content: '';
-    position: absolute;
-  top: 0;
-  right: 50%;
-    border-top: 2px solid #ccc;
-    width: 50%;
-  height: 18px;
-}
-.genealogy-tree li::after{
-    right: auto; left: 50%;
-    border-left: 2px solid #ccc;
-}
-.genealogy-tree li:only-child::after, .genealogy-tree li:only-child::before {
-    display: none;
-}
-.genealogy-tree li:only-child{
-    padding-top: 0;
-}
-.genealogy-tree li:first-child::before, .genealogy-tree li:last-child::after{
-    border: 0 none;
-}
-.genealogy-tree li:last-child::before{
-    border-right: 2px solid #ccc;
-    border-radius: 0 5px 0 0;
-    -webkit-border-radius: 0 5px 0 0;
-    -moz-border-radius: 0 5px 0 0;
-}
-.genealogy-tree li:first-child::after{
-    border-radius: 5px 0 0 0;
-    -webkit-border-radius: 5px 0 0 0;
-    -moz-border-radius: 5px 0 0 0;
-}
-.genealogy-tree ul ul::before{
-    content: '';
-    position: absolute; top: 0; left: 50%;
-    border-left: 2px solid #ccc;
-    width: 0; height: 20px;
-    background-color: white;
-}
-.genealogy-tree li a{
-    text-decoration: none;
-    color: #666;
-    font-family: arial, verdana, tahoma;
-    font-size: 11px;
-    display: inline-block;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-}
-
-.genealogy-tree li a:hover+ul li::after,
-.genealogy-tree li a:hover+ul li::before,
-.genealogy-tree li a:hover+ul::before,
-.genealogy-tree li a:hover+ul ul::before{
-    border-color:  #E4C580;
-}
-
-/*--------------memeber-card-design----------*/
-.member-view-box{
-    padding:20px 20px;
-    text-align: center;
-    border-radius: 4px;
-    border: 1px;
-    border-style: solid;
-    border-color: #E4C580;
-    position: relative;
-    color: white;
-    font-size: 20pt;
-    font-family: 'Playfair', serif;
 }
