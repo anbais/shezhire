@@ -17,6 +17,11 @@ header{
   text-decoration: none;
 }
 
+nav ul {
+  margin-left: 0px;
+}
+
+
 .nav_links{
   width: 100%;
   display: flex;
@@ -161,7 +166,7 @@ footer{
   margin: 10px auto;
 }
 
-main ul {
+ul {
   margin-left: 20px;
 }
 
@@ -257,6 +262,10 @@ hr{
   .nav_item a{
     font-size: 1.3em;
     padding: 20px;
+  }
+
+  .nav_item{
+    padding: 15px;
   }
 
   .mainheader, .peopleheader{
