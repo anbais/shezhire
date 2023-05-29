@@ -161,12 +161,6 @@ footer{
   margin: 10px auto;
 }
 
-
-
-
-
-
-
 ul {
   margin-left: 20px;
 }
@@ -178,7 +172,6 @@ ul {
 
 h1{
   font-weight: bold;
-  
 }
 
 ul h3{
@@ -251,21 +244,6 @@ ul h3{
   border: 1px solid #aaa;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 hr{
   height: 5px;
   border-width: 1px;
@@ -295,7 +273,27 @@ hr{
     margin-right: auto !IMPORTANT;
   }
 
+  .level1 li:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-left: 0px solid #ddd;
+    border-bottom: 0px solid #ddd;
+    width: 0px;
+    height: 0px;
+  }
 
+  .level1 li:after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: 0px;
+    border-left: 0px solid #ddd;
+    border-top: 0px solid #ddd;
+    width: 0px;
+    height: 0px;
+  }
 
   .genealogy-scroll::-webkit-scrollbar {
       width: 5px;
@@ -411,6 +409,84 @@ hr{
       font-family: 'Playfair', serif;
   }
 
+
+  ul {
+    margin-left: 0px;
+  }
+
+  .title h1{
+    display: none;
+  }
+
+  ul h3{
+    border: 0px;
+    border-style: solid;
+    border-color: white;
+    padding: 5px;
+    color: #E4C580;
+  }
+
+  .level1 li {
+    list-style-type: none;
+    margin: 0;
+    position: relative;
+  }
+
+
+
+  .level1 li:last-child:after {
+    display: none;
+  }
+
+  .level1 li span {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 10px;
+    color: #888;
+    text-decoration: none;
+  }
+
+  .level1 li span:hover,
+  .level1 li span:focus {
+    background: #eee;
+    color: #000;
+    border: 1px solid #aaa;
+  }
+
+  .level1 li span:hover + ul,
+  .level1 li span:focus + ul {
+    li:after,
+    li:before {
+      border-color: #aaa;
+    }
+  }
+
+  .level1 li span:hover + ul li span,
+  .level1 li span:focus + ul li span {
+    background: #eee;
+    color: #000;
+    border: 1px solid #aaa;
+  }
+
+  .subtitle_big{
+    font-size: 2em;
+  }
+
+  .subtitle_small{
+    text-align: center;
+    font-size: 1.5em;
+    display: block;
+    margin: 20px auto;
+  }
+
+  footer{
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.2em;
+  }
+}
+
 @media screen and (min-width: 1000px){
 
   header{
@@ -431,18 +507,7 @@ hr{
     margin: 20px 20px;
     font-size: 1.2em;
   }
-
-  .subtitle_big{
-    font-size: 1.5em;
-  }
-
-  .subtitle_small{
-    text-align: center;
-    font-size: 1em;
-    display: block;
-    margin: auto;
-  }
-
+}
 
 @media (prefers-reduced-motion: reduce){
   .mainheader, .peopleheader{
