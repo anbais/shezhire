@@ -29,7 +29,7 @@ header{
 }
 
 .nav_item{
-  padding: 15px;
+  padding: 18px;
 }
 
 .nav_item.active{
@@ -161,7 +161,7 @@ footer{
   margin: 10px auto;
 }
 
-ul {
+main ul {
   margin-left: 20px;
 }
 
